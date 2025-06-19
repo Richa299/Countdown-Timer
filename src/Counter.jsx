@@ -109,12 +109,13 @@ export default function Counter() {
           style={{
             position: "relative",
             display: "flex",
+            justifyContent: "center",
           }}
           className="footer"
         >
           <img src={patternhill} style={{ width: "100%" }} />
           <div
-            style={{ position: "absolute", top: "50%", left: "50%" }}
+            style={{ position: "absolute", top: "50%" }}
             className="footer-icons"
           >
             <FontAwesomeIcon icon={faFacebook} />
