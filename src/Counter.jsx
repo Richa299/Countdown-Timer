@@ -10,23 +10,27 @@ import patternhill from "./assets/pattern-hills.svg";
 import "./Counter.css";
 
 export default function Counter() {
+  //used dummy time for countdown
   const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(5);
+  const [hours, setHours] = useState(8);
+  const [minutes, setMinutes] = useState(59);
+  const [seconds, setSeconds] = useState(59);
   const [sec, setActiveSec] = useState("");
   const [hour, setActiveHour] = useState("");
   const [min, setActiveMin] = useState("");
   const [day, setActiveDay] = useState("");
 
   useEffect(() => {
+    setTimeout(() => {
+      setActiveSec(""), setActiveMin(""), setActiveDay(""), setActiveHour("");
+    }, 300);
     let interval = setInterval(() => {
       if (seconds == 1) {
         if (minutes !== 0) {
           setMinutes((min) => min - 1);
           setActiveMin("min");
           setActiveSec("sec");
-          setSeconds(5);
+          setSeconds(59);
         }
         if (days == 0 && hours == 0 && minutes == 0) {
           setSeconds(0);
@@ -41,22 +45,17 @@ export default function Counter() {
         if (hours !== 0) {
           setHours((hr) => hr - 1);
           setActiveHour("hour");
-          setMinutes(5);
+          setMinutes(59);
         }
       }
       if (hours == 1 && minutes == 1 && seconds == 1) {
         if (days !== 0) {
           setDays((days) => days - 1);
           setActiveDay("day");
-          setHours(2);
+          setHours(23);
         }
       }
     }, 1000);
-
-    setTimeout(() => setActiveSec(""), 400);
-    setTimeout(() => setActiveMin(""), 400);
-    setTimeout(() => setActiveDay(""), 400);
-    setTimeout(() => setActiveHour(""), 400);
 
     return () => clearInterval(interval);
   }, [seconds]);

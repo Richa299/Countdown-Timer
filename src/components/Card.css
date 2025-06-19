@@ -2,8 +2,9 @@
 .card.day,
 .card.hour,
 .card.min {
-  transition: transform 500ms;
   transform: rotateX(180deg);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
 hr {
