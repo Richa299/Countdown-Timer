@@ -1,5 +1,9 @@
+.footer-icons {
+  position: absolute;
+  top: 50%;
+}
 .footer-icons > *:hover {
-  color: brown;
+  color: hsl(345, 95%, 68%);
   cursor: pointer;
 }
 .footer-icons > * {
@@ -22,6 +26,9 @@
 }
 .footer {
   flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 .card-detail {
   display: flex;
@@ -32,6 +39,12 @@
   color: white;
   letter-spacing: 2px;
   margin-top: 10px;
+}
+h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 5rem;
+  letter-spacing: 10px;
 }
 @media only screen and (min-width: 440px) and (max-width: 640px) {
   .card-detail {

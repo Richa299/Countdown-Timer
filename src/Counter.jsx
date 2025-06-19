@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import patternhill from "./assets/pattern-hills.svg";
 import Card from "./components/Card";
-import "./Counter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faInstagram,
   faPinterest,
 } from "@fortawesome/free-brands-svg-icons";
+import patternhill from "./assets/pattern-hills.svg";
+import "./Counter.css";
 
 export default function Counter() {
-  const [days, setDays] = useState(1);
-  const [hours, setHours] = useState(23);
-  const [minutes, setMinutes] = useState(59);
-  const [seconds, setSeconds] = useState(59);
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(5);
   const [sec, setActiveSec] = useState("");
   const [hour, setActiveHour] = useState("");
   const [min, setActiveMin] = useState("");
@@ -26,12 +26,14 @@ export default function Counter() {
           setMinutes((min) => min - 1);
           setActiveMin("min");
           setActiveSec("sec");
-          setSeconds(59);
+          setSeconds(5);
+        }
+        if (days == 0 && hours == 0 && minutes == 0) {
+          setSeconds(0);
         }
       } else {
         if (seconds !== 0) {
           setSeconds((sec) => sec - 1);
-
           setActiveSec("sec");
         }
       }
@@ -39,19 +41,15 @@ export default function Counter() {
         if (hours !== 0) {
           setHours((hr) => hr - 1);
           setActiveHour("hour");
-
-          setMinutes(59);
+          setMinutes(5);
         }
       }
       if (hours == 1 && minutes == 1 && seconds == 1) {
         if (days !== 0) {
           setDays((days) => days - 1);
           setActiveDay("day");
-          setHours(59);
+          setHours(2);
         }
-      }
-      if (days == 0 && hours == 0 && minutes == 0) {
-        setSeconds(0);
       }
     }, 1000);
 
@@ -75,16 +73,7 @@ export default function Counter() {
             height: "71vh",
           }}
         >
-          <h2
-            style={{
-              color: "white",
-              textAlign: "center",
-              marginBottom: "5rem",
-              letterSpacing: "10px",
-            }}
-          >
-            WE'RE LAUNCHING SOON
-          </h2>
+          <h2>WE'RE LAUNCHING SOON</h2>
           <div
             style={{
               display: "flex",
@@ -105,19 +94,9 @@ export default function Counter() {
             <p>SECONDS</p>
           </div>
         </div>
-        <footer
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-          }}
-          className="footer"
-        >
+        <footer className="footer">
           <img src={patternhill} style={{ width: "100%" }} />
-          <div
-            style={{ position: "absolute", top: "50%" }}
-            className="footer-icons"
-          >
+          <div className="footer-icons">
             <FontAwesomeIcon icon={faFacebook} />
             <FontAwesomeIcon icon={faPinterest} />
             <FontAwesomeIcon icon={faInstagram} />
@@ -127,5 +106,3 @@ export default function Counter() {
     </>
   );
 }
-//font family
-//counter cards flip

@@ -10,8 +10,3 @@ function App() {
 }
 
 export default App;
-
-//responsive
-//time correction to get currnt time
-// styling in same css file
-// logic optimized

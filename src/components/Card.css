@@ -21,7 +21,7 @@ hr {
   top: 50%;
   transform: translateY(-50%);
   width: 14px;
-  height: 16px;
+  height: 15px;
   background: #1e1e2f;
   border-radius: 50%;
   z-index: 2;
@@ -42,6 +42,14 @@ hr {
   background-color: hsl(236, 21%, 26%);
   position: relative;
   font-size: 80px;
+}
+.card-data {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: hsl(345, 95%, 68%);
 }
 @media only screen and (min-width: 440px) and (max-width: 640px) {
   .card {
