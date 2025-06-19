@@ -10,10 +10,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Counter() {
-  const [days, setDays] = useState(2);
-  const [hours, setHours] = useState(2);
-  const [minutes, setMinutes] = useState(2);
-  const [seconds, setSeconds] = useState(5);
+  const [days, setDays] = useState(1);
+  const [hours, setHours] = useState(23);
+  const [minutes, setMinutes] = useState(59);
+  const [seconds, setSeconds] = useState(59);
   const [sec, setActiveSec] = useState("");
   const [hour, setActiveHour] = useState("");
   const [min, setActiveMin] = useState("");
@@ -26,7 +26,7 @@ export default function Counter() {
           setMinutes((min) => min - 1);
           setActiveMin("min");
           setActiveSec("sec");
-          setSeconds(5);
+          setSeconds(59);
         }
       } else {
         if (seconds !== 0) {
@@ -40,20 +40,20 @@ export default function Counter() {
           setHours((hr) => hr - 1);
           setActiveHour("hour");
 
-          setMinutes(5);
+          setMinutes(59);
         }
       }
       if (hours == 1 && minutes == 1 && seconds == 1) {
         if (days !== 0) {
           setDays((days) => days - 1);
           setActiveDay("day");
-          setHours(2);
+          setHours(59);
         }
       }
       if (days == 0 && hours == 0 && minutes == 0) {
         setSeconds(0);
       }
-    }, 100);
+    }, 1000);
 
     setTimeout(() => setActiveSec(""), 400);
     setTimeout(() => setActiveMin(""), 400);
@@ -65,63 +65,64 @@ export default function Counter() {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          height: "71vh",
-        }}
-      >
-        <h3 style={{ color: "white", textAlign: "center" }}>
-          WE'RE LAUNCHING SOON
-        </h3>
+      <div className="wrapper">
         <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "30px",
+            flexDirection: "column",
+            height: "71vh",
           }}
-          className="counter-cards"
         >
-          <Card data={days} title="DAYS" active={day} />
-          <Card data={hours} title="HOURS" active={hour} />
-          <Card data={minutes} title="MINUTES" active={min} />
-          <Card data={seconds} title="SECONDS" active={sec} />
+          <h2
+            style={{
+              color: "white",
+              textAlign: "center",
+              marginBottom: "5rem",
+              letterSpacing: "10px",
+            }}
+          >
+            WE'RE LAUNCHING SOON
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            className="counter-cards"
+          >
+            <Card data={days} title="DAYS" active={day} />
+            <Card data={hours} title="HOURS" active={hour} />
+            <Card data={minutes} title="MINUTES" active={min} />
+            <Card data={seconds} title="SECONDS" active={sec} />
+          </div>
+          <div className="card-detail">
+            <p>DAYS</p>
+            <p>HOURS</p>
+            <p>MINUTES</p>
+            <p>SECONDS</p>
+          </div>
         </div>
-        <div
+        <footer
           style={{
+            position: "relative",
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "100px",
-            fontSize: "16px",
-            color: "white",
           }}
+          className="footer"
         >
-          <p style={{ fontSize: "16px" }}>DAYS</p>
-          <p>HOURS</p>
-          <p>MINUTES</p>
-          <p>SECONDS</p>
-        </div>
+          <img src={patternhill} style={{ width: "100%" }} />
+          <div
+            style={{ position: "absolute", top: "50%", left: "50%" }}
+            className="footer-icons"
+          >
+            <FontAwesomeIcon icon={faFacebook} />
+            <FontAwesomeIcon icon={faPinterest} />
+            <FontAwesomeIcon icon={faInstagram} />
+          </div>
+        </footer>
       </div>
-      <footer
-        style={{
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <img src={patternhill} style={{ width: "100%" }} />
-        <div style={{ position: "absolute" }} className="footer-icons">
-          <FontAwesomeIcon icon={faFacebook} />
-          <FontAwesomeIcon icon={faPinterest} />
-          <FontAwesomeIcon icon={faInstagram} />
-        </div>
-      </footer>
     </>
   );
 }

@@ -9,7 +9,7 @@
 hr {
   position: absolute;
   width: 100%;
-  top: 43%;
+  top: 20%;
   height: 1.5px;
   border: none;
   background-color: hsl(235, 16%, 14%);
@@ -36,4 +36,34 @@ hr {
 }
 .card {
   box-shadow: 0px 7px 2px 2px #00000040;
+  width: 130px;
+  height: 130px;
+  border-radius: 5px;
+  background-color: hsl(236, 21%, 26%);
+  position: relative;
+  font-size: 80px;
+}
+@media only screen and (min-width: 440px) and (max-width: 640px) {
+  .card {
+    width: 90px;
+    height: 90px;
+  }
+  .card > p {
+    font-size: 40px;
+  }
+  hr {
+    top: 5%;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+  .card > p {
+    font-size: 35px;
+  }
+  hr {
+    top: -8%;
+  }
 }
