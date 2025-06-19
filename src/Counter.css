@@ -1,0 +1,14 @@
+.footer-icons > *:hover {
+  color: brown;
+  cursor: pointer;
+}
+.footer-icons > * {
+  margin-right: 20px;
+  color: hsl(237, 18%, 59%);
+  width: 20px;
+  height: 20px;
+}
+.counter-cards > * {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+}
